@@ -17,6 +17,7 @@ public class Movie {
     String backdropPath;
     Double voteAverage;
     Integer id;
+    String key;
 
     public Movie() { }
 
@@ -28,6 +29,10 @@ public class Movie {
         backdropPath = jsonObject.getString("backdrop_path");
         voteAverage = jsonObject.getDouble("vote_average");
         id = jsonObject.getInt("id");
+
+        if (jsonObject.has("key")) {
+            key = jsonObject.getString("key");
+        }
     }
 
 
@@ -35,7 +40,7 @@ public class Movie {
     public static List<Movie> fromJSONArray(JSONArray movieJsonArray) throws JSONException {
         List<Movie> movies = new ArrayList<>();
         for(int i = 0; i< movieJsonArray.length(); i++) {
-            movies.add(new Movie(movieJsonArray. getJSONObject(i)));
+            movies.add(new Movie(movieJsonArray.getJSONObject(i)));
         }
         return movies;
     }
@@ -61,4 +66,6 @@ public class Movie {
     }
 
     public Integer getId() {return id;}
+
+    public String getKey() {return key;}
 }
