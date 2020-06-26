@@ -16,6 +16,7 @@ public class Movie {
     String overview;
     String backdropPath;
     Double voteAverage;
+    Integer id;
 
     public Movie() { }
 
@@ -26,6 +27,7 @@ public class Movie {
         overview = jsonObject.getString("overview");
         backdropPath = jsonObject.getString("backdrop_path");
         voteAverage = jsonObject.getDouble("vote_average");
+        id = jsonObject.getInt("id");
     }
 
 
@@ -57,4 +59,6 @@ public class Movie {
     public Double getVoteAverage() {
         return voteAverage;
     }
+
+    public Integer getId() {return id;}
 }
